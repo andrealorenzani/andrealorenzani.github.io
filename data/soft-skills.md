@@ -13,8 +13,8 @@ I believe people do their best work when they're trusted, not supervised. At Cha
 
 ### Examples
 - Coached Product Managers and Delivery Managers through Black Friday stress instead of letting them white-knuckle it alone.
-- Helped two engineers, Shaquille and Katie, build the confidence to present at our technical forum.
-- Noticed a quieter teammate, Ioana, going silent during a stressful incident — pulled her into the conversation, then followed up properly over lunch afterwards.
+- Helped two engineers build the confidence to present at our technical forum.
+- Noticed a quieter teammate going silent during a stressful incident — pulled them into the conversation, then followed up properly over lunch afterwards.
 
 ---
 
@@ -81,7 +81,7 @@ I genuinely enjoy learning new things, not just for the CV line. It's usually wh
 icon: 👂
 
 ### Details
-This one comes with an honest story: a colleague, Tunji, once gave me feedback that I interrupt people. I wasn't 100% sure it was always fair — but I took it seriously anyway, and I've been consciously leaving more space for others to finish speaking ever since.
+This one comes with an honest story: a colleague once gave me feedback that I interrupt people. I wasn't 100% sure it was always fair — but I took it seriously anyway, and I've been consciously leaving more space for others to finish speaking ever since.
 
 ### Examples
 - Actively works to let others speak first in meetings, especially quieter voices.

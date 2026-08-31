@@ -13,8 +13,8 @@ Credo che le persone diano il meglio quando vengono fidate, non supervisionate. 
 
 ### Examples
 - Ho fatto coaching a Product Manager e Delivery Manager nello stress del Black Friday invece di lasciarli affrontare tutto da soli.
-- Ho aiutato due ingegneri, Shaquille e Katie, a costruire la fiducia necessaria per presentare al nostro forum tecnico.
-- Ho notato una collega più riservata, Ioana, farsi silenziosa durante un incidente stressante — l'ho coinvolta nella conversazione, poi mi sono assicurato di risentirla con calma a pranzo.
+- Ho aiutato due ingegneri a costruire la fiducia necessaria per presentare al nostro forum tecnico.
+- Ho notato un membro del team più riservato farsi silenzioso durante un incidente stressante — l'ho coinvolto nella conversazione, poi mi sono assicurato di risentirlo con calma a pranzo.
 
 ---
 
@@ -81,7 +81,7 @@ Mi piace davvero imparare cose nuove, non solo per il CV. Di solito è proprio d
 icon: 👂
 
 ### Details
-Questa viene con una storia onesta: un collega, Tunji, una volta mi ha dato un feedback dicendo che interrompo le persone. Non ero sicuro al 100% che fosse sempre giusto — ma l'ho preso comunque sul serio, e da allora lascio consapevolmente più spazio agli altri per finire di parlare.
+Questa viene con una storia onesta: un collega una volta mi ha dato un feedback dicendo che interrompo le persone. Non ero sicuro al 100% che fosse sempre giusto — ma l'ho preso comunque sul serio, e da allora lascio consapevolmente più spazio agli altri per finire di parlare.
 
 ### Examples
 - Lavora attivamente per far parlare prima gli altri nelle riunioni, specialmente le voci più timide.

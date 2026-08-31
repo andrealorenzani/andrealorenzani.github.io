@@ -37,12 +37,12 @@ end: 2025-05
 icon: 💄
 
 ### Achievements
-- iDeal, the main Dutch payment method, had been switched off for a year before I joined — 15–20% of payments were taking people's money with no order created. I turned it back on deliberately to get fresh failure data, found the real number was worse (25–35%), fixed the actual bug with a small, secure redirect-token workaround instead of a much bigger webhook rebuild, and shipped it in about a month. €765K/year recovered for the Netherlands market. Chris was right to be suspicious about security — we ran a full review together, and made the whole payment flow safer for it.
+- iDeal, the main Dutch payment method, had been switched off for a year before I joined — 15–20% of payments were taking people's money with no order created. I turned it back on deliberately to get fresh failure data, found the real number was worse (25–35%), fixed the actual bug with a small, secure redirect-token workaround instead of a much bigger webhook rebuild, and shipped it in about a month. €765K/year recovered for the Netherlands market. A colleague raised valid security concerns — we ran a full review together, and made the whole payment flow safer for it.
 - Turned Black Friday from "200–300 confused phone calls a week" into "the quietest peak ever" — an actual quote from Customer Care. 532 orders self-served through cancel/update, zero warehouse phone calls, thanks to a boring 30-minute delay and then convincing five different teams that our leadership reports needed one sentence rewritten.
 - Stopped three promotions from politely destroying our margins by silently stacking on top of each other for years. Rebuilt it to just apply the single best one automatically — no configuration, no Sales spreadsheet of doom. 966K promo decisions corrected, 198K stacking events blocked, and checkout completion went up too.
 - When Genshin Impact (yes, the video game) wanted to give our customers in-game rewards, I designed a proper 3-part email architecture, then quietly kept a scrappy fallback plan alive in case we ran out of time. We ran out of time. The fallback shipped the partnership on schedule (~£150K in bundle revenue), and we finished the proper version right after.
 - Brought in Riskified to catch fraud before it caught us — $766K ARR generated, one of the four biggest engineering projects of the year.
-- Started three engineering guilds (Infrastructure, Backend, E-commerce) and an Architecture Forum, because a colleague — Cyril — showed me that one good diagram saves everyone a week of confusion.
+- Started three engineering guilds (Infrastructure, Backend, E-commerce) and an Architecture Forum, because a colleague showed me that one good diagram saves everyone a week of confusion.
 
 ### Impact
 - MTTR down 80%. Change Failure Rate from 18% to 2%. Zero manual interventions needed during peak.
