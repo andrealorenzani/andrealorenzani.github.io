@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Andrea Lorenzani — Engineer, Leader, Professional Over-Explainer</title>
+<meta name="description" content="Andrea Lorenzani's slightly-too-honest personal CV: experience, soft skills, education and hobbies, in his own voice.">
+<link rel="icon" href="data:,">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@500;700;800&amp;family=Nunito:wght@400;600;700;800&amp;display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<a class="skip-link" href="#main">Skip to content</a>
+
+<header class="topnav">
+  <a class="topnav-brand" href="#top">Andrea Lorenzani</a>
+  <nav aria-label="Section navigation">
+    <a href="#top">Home</a>
+    <a href="#experience">Experience</a>
+    <a href="#soft-skills">Soft Skills</a>
+    <a href="#education">Education</a>
+    <a href="#hobbies">Hobbies</a>
+    <a href="#contacts">Contacts</a>
+  </nav>
+</header>
+
+<main id="main">
+
+  <!-- ===================== HERO / WELCOME ===================== -->
+  <section id="top" class="hero" aria-labelledby="hero-name">
+    <div class="hero-top">
+      <div class="hero-portrait">
+        <img id="hero-image" alt="" width="343" height="445">
+      </div>
+      <div class="hero-heading">
+        <p class="eyebrow">Hi there, I'm</p>
+        <h1 id="hero-name">Andrea Lorenzani</h1>
+        <p id="hero-tagline" class="hero-tagline"></p>
+      </div>
+    </div>
+    <div class="hero-copy">
+      <p id="hero-intro" class="hero-intro"></p>
+      <p id="hero-stats" class="hero-stats"></p>
+      <a id="hero-cta" class="hero-cta" href="#experience">Scroll down. It gets funnier.</a>
+    </div>
+  </section>
+
+  <!-- ===================== EXPERIENCE ===================== -->
+  <section id="experience" class="section section--img-right" aria-labelledby="experience-title">
+    <div class="section-copy">
+      <h2 id="experience-title" class="section-title"></h2>
+      <p id="experience-subtitle" class="section-subtitle"></p>
+      <ul id="experience-list" class="exp-list"></ul>
+    </div>
+    <div class="section-portrait">
+      <img id="experience-image" alt="" width="547" height="431">
+    </div>
+  </section>
+
+  <!-- ===================== SOFT SKILLS ===================== -->
+  <section id="soft-skills" class="section section--img-left" aria-labelledby="skills-title">
+    <div class="section-portrait">
+      <img id="skills-image" alt="" width="432" height="434">
+    </div>
+    <div class="section-copy">
+      <h2 id="skills-title" class="section-title"></h2>
+      <p id="skills-subtitle" class="section-subtitle"></p>
+      <div id="skills-grid" class="skills-grid"></div>
+    </div>
+  </section>
+
+  <!-- ===================== EDUCATION ===================== -->
+  <section id="education" class="section section--img-right" aria-labelledby="education-title">
+    <div class="section-copy">
+      <h2 id="education-title" class="section-title"></h2>
+      <p id="education-subtitle" class="section-subtitle"></p>
+      <div id="education-list" class="edu-list"></div>
+    </div>
+    <div class="section-portrait">
+      <img id="education-image" alt="" width="376" height="439">
+    </div>
+  </section>
+
+  <!-- ===================== HOBBIES ===================== -->
+  <section id="hobbies" class="section section--img-left" aria-labelledby="hobbies-title">
+    <div class="section-portrait">
+      <img id="hobbies-image" alt="" width="465" height="425">
+    </div>
+    <div class="section-copy">
+      <h2 id="hobbies-title" class="section-title"></h2>
+      <p id="hobbies-subtitle" class="section-subtitle"></p>
+      <ul id="hobbies-list" class="hobbies-list"></ul>
+    </div>
+  </section>
+
+  <!-- ===================== CONTACTS ===================== -->
+  <section id="contacts" class="section section--img-right" aria-labelledby="contacts-title">
+    <div class="section-copy">
+      <h2 id="contacts-title" class="section-title"></h2>
+      <p id="contacts-subtitle" class="section-subtitle"></p>
+      <div id="contacts-list" class="contacts-list"></div>
+    </div>
+    <div class="section-portrait">
+      <img id="contacts-image" alt="" width="372" height="442">
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <p>&copy; <span id="year"></span> Andrea Lorenzani. Built with plain HTML, CSS and JS — no framework was harmed in the making of this site.</p>
+</footer>
+
+<!-- Modal used for Experience and Soft Skills popups -->
+<div id="modal" class="modal" role="dialog" aria-modal="true" aria-label="Details">
+  <div class="modal-card" id="modal-body"></div>
+</div>
+
+<script src="js/md-parser.js"></script>
+<script src="js/main.js"></script>
+</body>
+</html>

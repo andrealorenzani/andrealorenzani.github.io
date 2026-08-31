@@ -1,0 +1,736 @@
+/* =======================================================================
+   Andrea Lorenzani — personal CV site
+   A warm, playful, two-tone design. Colours and fonts are all set as
+   custom properties on :root so the whole look can be re-themed from
+   one place.
+   ======================================================================= */
+
+:root {
+  --bg: #FFF8F0;
+  --bg-alt: #FFF1E4;
+  --ink: #2B2118;
+  --ink-soft: #5B4E42;
+  --coral: #FF6B4A;
+  --coral-dark: #E14E2C;
+  --teal: #1FB6A6;
+  --teal-dark: #128C7E;
+  --sun: #FFC857;
+  --card-bg: #FFFFFF;
+  --card-border: #F0DFCC;
+  --shadow: 0 10px 30px rgba(43, 33, 24, 0.08);
+  --shadow-hover: 0 16px 40px rgba(43, 33, 24, 0.14);
+  --radius-lg: 28px;
+  --radius-md: 18px;
+  --radius-sm: 12px;
+  --font-display: 'Baloo 2', 'Segoe UI Rounded', system-ui, sans-serif;
+  --font-body: 'Nunito', system-ui, -apple-system, 'Segoe UI', sans-serif;
+  --max-width: 1080px;
+}
+
+* { box-sizing: border-box; }
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--ink);
+  font-family: var(--font-body);
+  line-height: 1.55;
+  opacity: 0;
+  transition: opacity 0.4s ease;
+}
+body.is-loaded { opacity: 1; }
+body.modal-open { overflow: hidden; }
+
+img { max-width: 100%; display: block; }
+
+h1, h2, h3, h4 {
+  font-family: var(--font-display);
+  font-weight: 700;
+  line-height: 1.1;
+  margin: 0 0 0.5em;
+  color: var(--ink);
+}
+
+a { color: var(--coral-dark); }
+
+.skip-link {
+  position: absolute;
+  left: -999px;
+  top: auto;
+  background: var(--ink);
+  color: #fff;
+  padding: 0.75rem 1.25rem;
+  border-radius: var(--radius-sm);
+  z-index: 200;
+}
+.skip-link:focus {
+  left: 1rem;
+  top: 1rem;
+}
+
+/* ---------------------------------------------------------------------
+   Top navigation
+   --------------------------------------------------------------------- */
+
+.topnav {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 0.9rem 1.5rem;
+  background: rgba(255, 248, 240, 0.88);
+  backdrop-filter: blur(8px);
+  border-bottom: 1px solid var(--card-border);
+  flex-wrap: wrap;
+}
+
+.topnav-brand {
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: 1.15rem;
+  color: var(--ink);
+  text-decoration: none;
+}
+
+.topnav nav {
+  display: flex;
+  gap: 0.35rem;
+  flex-wrap: wrap;
+}
+
+.topnav nav a {
+  text-decoration: none;
+  color: var(--ink-soft);
+  font-weight: 700;
+  padding: 0.45rem 0.85rem;
+  border-radius: 999px;
+  font-size: 0.95rem;
+  transition: background 0.15s ease, color 0.15s ease;
+}
+
+.topnav nav a:hover,
+.topnav nav a:focus-visible {
+  background: var(--coral);
+  color: #fff;
+}
+
+/* ---------------------------------------------------------------------
+   Shared section layout: image + copy, alternating sides
+   --------------------------------------------------------------------- */
+
+main { display: block; }
+
+.section,
+.hero {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 4rem 1.5rem;
+}
+
+.section {
+  display: flex;
+  align-items: center;
+  gap: 3rem;
+}
+
+/* Both variants render as a plain row — which side the image lands on is
+   controlled by DOM order in index.html (portrait markup first = image on
+   the left; copy markup first = image on the right), not by flex-direction. */
+.section--img-right,
+.section--img-left { flex-direction: row; }
+
+.section-portrait,
+.hero-portrait {
+  flex: 0 0 auto;
+  width: 260px;
+  position: relative;
+}
+
+.section-portrait::before,
+.hero-portrait::before {
+  content: "";
+  position: absolute;
+  inset: 6% 8%;
+  background: linear-gradient(135deg, var(--sun), var(--coral));
+  border-radius: 45% 55% 60% 40% / 50% 45% 55% 50%;
+  z-index: 0;
+  opacity: 0.35;
+  filter: blur(2px);
+}
+
+.section-portrait img,
+.hero-portrait img {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  height: auto;
+}
+
+.section-copy { flex: 1 1 480px; min-width: 0; }
+
+.section-title {
+  font-size: clamp(1.7rem, 3vw, 2.3rem);
+}
+
+.section-subtitle {
+  color: var(--ink-soft);
+  font-size: 1.05rem;
+  margin: 0 0 1.75rem;
+  max-width: 46ch;
+}
+
+/* ---------------------------------------------------------------------
+   Hero
+   --------------------------------------------------------------------- */
+
+.hero { padding-top: 3rem; }
+
+.hero-top {
+  display: flex;
+  align-items: center;
+  gap: 2.5rem;
+  flex-wrap: wrap;
+}
+
+.hero-portrait { width: 220px; }
+
+.eyebrow {
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  font-weight: 800;
+  font-size: 0.85rem;
+  color: var(--teal-dark);
+  margin: 0 0 0.35rem;
+}
+
+.hero-heading h1 {
+  font-size: clamp(2.4rem, 5vw, 3.4rem);
+}
+
+.hero-tagline {
+  font-size: 1.2rem;
+  color: var(--ink-soft);
+  font-weight: 700;
+  margin: 0.25rem 0 0;
+}
+
+.hero-copy {
+  margin-top: 2.25rem;
+  background: var(--card-bg);
+  border: 1px solid var(--card-border);
+  border-radius: var(--radius-lg);
+  padding: 1.75rem 2rem;
+  box-shadow: var(--shadow);
+}
+
+.hero-intro {
+  font-size: 1.15rem;
+  margin: 0 0 0.6rem;
+}
+
+.hero-stats {
+  font-size: 1.05rem;
+  color: var(--ink-soft);
+  margin: 0 0 1.1rem;
+}
+
+.hero-stats strong { color: var(--coral-dark); }
+
+.hero-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  text-decoration: none;
+  font-weight: 800;
+  color: #fff;
+  background: var(--coral);
+  padding: 0.7rem 1.3rem;
+  border-radius: 999px;
+  transition: transform 0.15s ease, background 0.15s ease;
+}
+.hero-cta:hover, .hero-cta:focus-visible {
+  background: var(--coral-dark);
+  transform: translateY(-2px);
+}
+.hero-cta::after { content: "↓"; }
+
+/* ---------------------------------------------------------------------
+   Experience list
+   --------------------------------------------------------------------- */
+
+.exp-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.85rem;
+}
+
+.exp-item {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  background: var(--card-bg);
+  border: 1px solid var(--card-border);
+  border-left: 6px solid var(--teal);
+  border-radius: var(--radius-md);
+  padding: 1rem 1.2rem;
+  cursor: pointer;
+  box-shadow: var(--shadow);
+  transition: transform 0.15s ease, box-shadow 0.15s ease, border-color 0.15s ease;
+}
+
+.exp-item:hover,
+.exp-item:focus-visible {
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-hover);
+  border-left-color: var(--coral);
+  outline: none;
+}
+
+.exp-item--current {
+  border-left-color: var(--coral);
+  background: linear-gradient(0deg, var(--bg-alt), var(--card-bg));
+}
+
+.exp-icon { font-size: 1.6rem; flex: 0 0 auto; }
+
+.exp-text {
+  flex: 1 1 auto;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  column-gap: 0.35rem;
+  min-width: 0;
+}
+
+.exp-role {
+  font-weight: 800;
+  font-family: var(--font-display);
+  font-size: 1.05rem;
+}
+
+.exp-sep { color: var(--ink-soft); }
+
+.exp-company { font-weight: 700; color: var(--coral-dark); }
+
+.exp-period {
+  flex-basis: 100%;
+  color: var(--ink-soft);
+  font-size: 0.92rem;
+}
+
+.exp-period em { font-style: normal; color: var(--teal-dark); font-weight: 700; }
+
+.exp-arrow {
+  flex: 0 0 auto;
+  color: var(--coral);
+  font-size: 1.3rem;
+  transition: transform 0.15s ease;
+}
+.exp-item:hover .exp-arrow,
+.exp-item:focus-visible .exp-arrow { transform: translateX(4px); }
+
+/* ---------------------------------------------------------------------
+   Soft skills grid
+   --------------------------------------------------------------------- */
+
+.skills-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 0.9rem;
+}
+
+.skill-card {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.5rem;
+  background: var(--card-bg);
+  border: 1px solid var(--card-border);
+  border-radius: var(--radius-md);
+  padding: 1.1rem 1.2rem;
+  cursor: pointer;
+  text-align: left;
+  font-family: var(--font-body);
+  box-shadow: var(--shadow);
+  transition: transform 0.15s ease, box-shadow 0.15s ease, background 0.15s ease;
+}
+
+.skill-card:hover,
+.skill-card:focus-visible {
+  transform: translateY(-4px) rotate(-0.4deg);
+  box-shadow: var(--shadow-hover);
+  background: var(--bg-alt);
+  outline: none;
+}
+
+.skill-icon { font-size: 1.8rem; }
+
+.skill-name {
+  font-weight: 800;
+  font-family: var(--font-display);
+  color: var(--ink);
+}
+
+/* ---------------------------------------------------------------------
+   Education
+   --------------------------------------------------------------------- */
+
+.edu-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.85rem;
+}
+
+.edu-card {
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+  background: var(--card-bg);
+  border: 1px solid var(--card-border);
+  border-radius: var(--radius-md);
+  padding: 1.1rem 1.2rem;
+  text-decoration: none;
+  color: inherit;
+  box-shadow: var(--shadow);
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+a.edu-card:hover, a.edu-card:focus-visible {
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-hover);
+  outline: none;
+}
+
+div.edu-card { cursor: default; }
+
+.edu-icon { font-size: 1.6rem; flex: 0 0 auto; }
+
+.edu-body { display: flex; flex-direction: column; gap: 0.15rem; flex: 1 1 auto; }
+
+.edu-title {
+  font-weight: 800;
+  font-family: var(--font-display);
+  font-size: 1.05rem;
+}
+
+.edu-institution { color: var(--coral-dark); font-weight: 700; }
+
+.edu-meta {
+  display: flex;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+  color: var(--ink-soft);
+  font-size: 0.92rem;
+}
+
+.edu-grade::before { content: "🏅 "; }
+
+.edu-note {
+  margin: 0.4rem 0 0;
+  color: var(--ink-soft);
+  font-style: italic;
+}
+
+.edu-arrow { color: var(--coral); font-size: 1.3rem; align-self: center; }
+
+.lang-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-top: 0.5rem;
+}
+
+.lang-chip {
+  background: var(--bg-alt);
+  border: 1px solid var(--card-border);
+  border-radius: 999px;
+  padding: 0.25rem 0.75rem;
+  font-size: 0.9rem;
+}
+.lang-chip strong { color: var(--teal-dark); margin-right: 0.3rem; }
+
+/* ---------------------------------------------------------------------
+   Hobbies
+   --------------------------------------------------------------------- */
+
+.hobbies-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 0.7rem 1.2rem;
+}
+
+.hobby-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.7rem;
+  padding: 0.5rem 0;
+}
+
+.hobby-icon { font-size: 1.4rem; }
+
+.hobby-name { font-weight: 800; font-family: var(--font-display); }
+
+/* ---------------------------------------------------------------------
+   Contacts
+   --------------------------------------------------------------------- */
+
+.contacts-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.85rem;
+}
+
+.contact-card {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  background: var(--card-bg);
+  border: 1px solid var(--card-border);
+  border-left: 6px solid var(--teal);
+  border-radius: var(--radius-md);
+  padding: 1.1rem 1.2rem;
+  text-decoration: none;
+  color: inherit;
+  box-shadow: var(--shadow);
+  transition: transform 0.15s ease, box-shadow 0.15s ease, border-color 0.15s ease;
+}
+
+.contact-card:hover,
+.contact-card:focus-visible {
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-hover);
+  border-left-color: var(--coral);
+  outline: none;
+}
+
+.contact-icon { font-size: 1.7rem; flex: 0 0 auto; }
+
+.contact-body { display: flex; flex-direction: column; gap: 0.1rem; flex: 1 1 auto; }
+
+.contact-title {
+  font-weight: 800;
+  font-family: var(--font-display);
+  font-size: 1.05rem;
+}
+
+.contact-value { color: var(--coral-dark); font-weight: 700; }
+
+.contact-arrow { color: var(--coral); font-size: 1.3rem; }
+
+/* ---------------------------------------------------------------------
+   Tags / chips (used inside modals)
+   --------------------------------------------------------------------- */
+
+.tag-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+}
+
+.tag {
+  background: var(--bg-alt);
+  border: 1px solid var(--card-border);
+  color: var(--ink-soft);
+  border-radius: 999px;
+  padding: 0.3rem 0.75rem;
+  font-size: 0.85rem;
+  font-weight: 700;
+}
+
+/* ---------------------------------------------------------------------
+   Modal
+   --------------------------------------------------------------------- */
+
+.modal {
+  position: fixed;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1.5rem;
+  background: rgba(43, 33, 24, 0.55);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.2s ease;
+  z-index: 100;
+}
+
+.modal.open {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.modal-card {
+  position: relative;
+  background: var(--card-bg);
+  border-radius: var(--radius-lg);
+  padding: 2.25rem 2rem 2rem;
+  max-width: 620px;
+  width: 100%;
+  max-height: 85vh;
+  overflow-y: auto;
+  box-shadow: 0 30px 60px rgba(0,0,0,0.3);
+  transform: translateY(12px) scale(0.98);
+  transition: transform 0.2s ease;
+}
+
+.modal.open .modal-card {
+  transform: translateY(0) scale(1);
+}
+
+.modal-close {
+  position: absolute;
+  top: 0.9rem;
+  right: 1rem;
+  border: none;
+  background: var(--bg-alt);
+  width: 2.2rem;
+  height: 2.2rem;
+  border-radius: 50%;
+  font-size: 1.4rem;
+  line-height: 1;
+  cursor: pointer;
+  color: var(--ink-soft);
+}
+.modal-close:hover, .modal-close:focus-visible { background: var(--coral); color: #fff; }
+
+.modal-eyebrow {
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  font-weight: 800;
+  font-size: 0.8rem;
+  color: var(--teal-dark);
+  margin-bottom: 0.35rem;
+}
+
+.modal-title {
+  font-size: 1.6rem;
+  margin-bottom: 0.3rem;
+}
+
+.modal-period {
+  color: var(--ink-soft);
+  margin: 0 0 1.25rem;
+}
+
+.modal-card h4 {
+  font-family: var(--font-body);
+  font-weight: 800;
+  font-size: 0.95rem;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: var(--coral-dark);
+  margin: 1.4rem 0 0.5rem;
+}
+.modal-card h4:first-of-type { margin-top: 0.25rem; }
+
+.modal-bullets {
+  margin: 0;
+  padding-left: 1.2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.modal-notes { color: var(--ink-soft); }
+
+/* ---------------------------------------------------------------------
+   Acronym tooltips
+   --------------------------------------------------------------------- */
+
+.acro {
+  position: relative;
+  border-bottom: 2px dotted var(--teal);
+  cursor: help;
+  font-weight: 700;
+}
+
+.acro-tip {
+  position: absolute;
+  left: 50%;
+  bottom: 135%;
+  transform: translateX(-50%) translateY(4px);
+  background: var(--ink);
+  color: #fff;
+  font-family: var(--font-body);
+  font-weight: 600;
+  font-size: 0.82rem;
+  line-height: 1.3;
+  padding: 0.5rem 0.7rem;
+  border-radius: var(--radius-sm);
+  white-space: normal;
+  width: max-content;
+  max-width: 240px;
+  text-align: center;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.15s ease, transform 0.15s ease;
+  z-index: 20;
+  pointer-events: none;
+}
+
+.acro-tip::after {
+  content: "";
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  border: 6px solid transparent;
+  border-top-color: var(--ink);
+}
+
+.acro:hover .acro-tip,
+.acro:focus-visible .acro-tip {
+  opacity: 1;
+  visibility: visible;
+  transform: translateX(-50%) translateY(0);
+}
+
+/* ---------------------------------------------------------------------
+   Footer
+   --------------------------------------------------------------------- */
+
+.site-footer {
+  text-align: center;
+  color: var(--ink-soft);
+  font-size: 0.9rem;
+  padding: 2.5rem 1.5rem 3.5rem;
+}
+
+/* ---------------------------------------------------------------------
+   Responsive
+   --------------------------------------------------------------------- */
+
+@media (max-width: 760px) {
+  .section {
+    flex-direction: column !important;
+    gap: 1.75rem;
+    padding: 3rem 1.25rem;
+    text-align: left;
+  }
+  .section-portrait { width: 150px; order: -1; }
+  .hero-top { flex-direction: column; text-align: center; }
+  .hero-heading { text-align: center; }
+  .hero-copy { padding: 1.5rem; }
+  .topnav { padding: 0.75rem 1rem; }
+  .topnav nav { gap: 0.15rem; }
+  .topnav nav a { padding: 0.4rem 0.6rem; font-size: 0.88rem; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  * { transition-duration: 0.001ms !important; animation-duration: 0.001ms !important; }
+}
