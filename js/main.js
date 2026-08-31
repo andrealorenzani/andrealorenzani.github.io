@@ -200,12 +200,11 @@
     const stats = meta.stats_template
       .replace('{{years}}', years)
       .replace('{{leadYears}}', leadYears)
-      .replace('{{workStartLabel}}', monthLabel(meta.work_start))
-      .replace('{{leadStartLabel}}', monthLabel(meta.lead_start))
       .replace('{{study}}', meta.study);
 
     document.getElementById('hero-stats').textContent = stats;
     if (meta.cta) document.getElementById('hero-cta').textContent = meta.cta;
+    if (meta.ai_note) document.getElementById('hero-ai-note').textContent = meta.ai_note;
 
     // The hero <section> is id="top" (that id doubles as the "Home" nav
     // anchor) — .hero is only its CSS class, not an element id.

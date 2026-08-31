@@ -11,12 +11,25 @@ same way it would fetch a JSON file. See the **`.nojekyll`** note below
 though: don't remove that file, or GitHub will try to build this as a Jekyll
 site and break it.
 
+This repository **is** the live site — it's the exact content of
+`https://andrealorenzani.github.io/`, tracked in git. There's no separate
+build/deploy step: commit to `main` and Pages redeploys automatically.
+
 ## Editing the content
 
 Every fact on this site (roles, dates, skills, education, hobbies, contact
 links, acronym meanings) lives in `data/*.md`, not in the HTML/CSS/JS. To
 change what the site says, edit the relevant file in `data/`. The exact
-format is documented in [`../docs/website-content-format.md`](../docs/website-content-format.md).
+format is documented in [`docs/website-content-format.md`](docs/website-content-format.md).
+
+**This site's facts are meant to stay in sync with the CV data maintained in
+the separate `agentic_cv` project.** Don't hand-edit `data/*.md` here for
+anything that should also be true on Andrea's CV/cover letters (a new role,
+a new certification, a corrected metric) — make that change in `agentic_cv`
+first, then run its `website-sync` skill, which diffs this repo against that
+source data and pushes the update here (recording the resulting commit hash
+in the skill file). Pure presentation tweaks that are specific to this site
+only (tone, layout, which hobbies to list) can be made directly here.
 
 ## Previewing locally
 
@@ -29,55 +42,28 @@ python3 -m http.server 8000
 # then open http://localhost:8000/
 ```
 
-## Publishing on GitHub Pages
-
-This folder is meant to become the **root** of the repository GitHub Pages
-serves. Two common ways to do that:
-
-**Option A — dedicated user site repo (recommended)**
-1. Create a repository named exactly `<your-github-username>.github.io`.
-2. Copy everything inside this `github.io/` folder (not the folder itself)
-   to the root of that new repository, and push it to the `main` branch.
-3. In that repo's Settings → Pages, set the source to `main` / `/ (root)`.
-4. The site is live at `https://<your-github-username>.github.io/`.
-
-**Option B — Pages from this repository**
-1. In *this* repository's Settings → Pages, set the source to a GitHub
-   Actions workflow (or, if using the branch-based source, note that GitHub
-   Pages only serves from the repo root or a `/docs` folder — not an
-   arbitrary folder name like `github.io/` — so a small deploy workflow that
-   copies this folder's contents to the `gh-pages` branch, or to `/docs`, is
-   needed).
-
-Option A is simpler and is what the [GitHub Pages "creating a site" guide](https://docs.github.com/en/pages/getting-started-with-github-pages/creating-a-github-pages-site)
-describes for a personal site.
-
-### Why the `.nojekyll` file matters
+## Why the `.nojekyll` file matters
 
 GitHub Pages runs every published site through **Jekyll** by default, unless
 told not to. Every file in `data/` starts with a `---` front-matter block —
 which is also Jekyll's own page syntax — so without opting out, GitHub would
 try to build those `.md` files into HTML pages instead of leaving them as
 plain text for this site's own fetch-and-parse code to read, and the whole
-site would break the moment it went live (it works fine when you preview it
-locally, which is what makes this easy to miss).
-
-The empty `.nojekyll` file at the root of this folder disables that build
-step entirely, so every file — including everything in `data/` — is served
-byte-for-byte as committed. **Make sure `.nojekyll` is included when you
-copy this folder's contents into the Pages repo** — it's easy to miss
-because it's a dotfile and some file managers/zip tools hide or skip it by
-default. If the live site ever shows a blank page while the local preview
-works fine, this is the first thing to check.
+site would break the moment it went live (it works fine in local preview,
+which is what makes this easy to miss — a plain Python server never runs
+Jekyll at all). The empty `.nojekyll` file at the repo root disables that
+build step entirely, so every file is served byte-for-byte as committed.
+**Never delete it.**
 
 ## Structure
 
 ```
-github.io/
-  index.html          Page structure only — no hardcoded content
-  css/style.css        All visual design
-  js/md-parser.js       Tiny parser for the data file format
-  js/main.js            Loads data/*.md, renders every section, wires up popups
-  data/*.md             Every fact on the site — see docs/website-content-format.md
-  img/*.png              The chibi illustrations used per section
+index.html          Page structure only — no hardcoded content
+css/style.css        All visual design
+js/md-parser.js       Tiny parser for the data file format
+js/main.js            Loads data/*.md, renders every section, wires up popups
+data/*.md             Every fact on the site — see docs/website-content-format.md
+img/*.png              The chibi illustrations used per section
+docs/                 Format documentation
+.nojekyll             Disables Jekyll — see above, never remove
 ```

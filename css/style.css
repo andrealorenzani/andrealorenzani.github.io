@@ -261,6 +261,13 @@ main { display: block; }
 }
 .hero-cta::after { content: "↓"; }
 
+.hero-ai-note {
+  margin: 1rem 0 0;
+  font-size: 0.7rem;
+  color: var(--ink-soft);
+  opacity: 0.7;
+}
+
 /* ---------------------------------------------------------------------
    Experience list
    --------------------------------------------------------------------- */

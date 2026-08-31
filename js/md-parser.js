@@ -62,7 +62,16 @@
       return lines.map((l) => l.trim().replace(/^- /, '').trim());
     }
 
-    if (lines.every((l) => /^[^:\n]{1,60}:\s?.*$/.test(l.trim()))) {
+    // A real dict block always has 2+ short "Label: value" lines (e.g. the
+    // Languages entry's Italian/English/French/Spanish levels). Requiring
+    // more than one line, a short letters-only key, and a mandatory space
+    // before the value avoids misreading an ordinary prose sentence that
+    // merely happens to contain an early colon (e.g. "My door — or Slack
+    // DM — is open to anyone: ...") as a dictionary.
+    if (
+      lines.length > 1 &&
+      lines.every((l) => /^[A-Za-z][A-Za-z0-9 ]{0,24}:\s+\S.*$/.test(l.trim()))
+    ) {
       const obj = {};
       lines.forEach((l) => {
         const kv = splitKV(l.trim());
