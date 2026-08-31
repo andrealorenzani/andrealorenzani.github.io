@@ -12,15 +12,19 @@ end: present
 icon: 🤖
 
 ### Achievements
+- Preso in carico l'intera piattaforma SmartPay entro i primi due mesi — architettura, ritmo di delivery, tutto quanto. Velocemente, a quanto pare: se n'è accorto anche il mio manager.
 - Costruito agenti e applicazioni AI in produzione da zero — non demo, cose vere che girano live. Il 30–50% degli incidenti viene ora auto-triagato prima ancora che un umano apra Slack.
 - Costruito lo SRE Rota Intelligence Tool: legge il calendario di reperibilità da Confluence, legge i ticket di supporto e ci avvisa in silenzio quando la rota sta per andare storta. Codice generato al 100% dall'AI, cosa che mi rende ancora un po' nervoso e molto orgoglioso.
 - Portato tutto il team di 9 persone a scrivere il 100% dei nuovi test con l'aiuto dell'AI, e le ultime 8 epiche di ingegneria sono state documentate interamente dall'AI. I miei polsi ringraziano.
 - Scritte le istruzioni per GitHub Copilot e le definizioni delle skill AI che il team usa ogni giorno — qualcuno deve pur scrivere le regole prima che i robot possano seguirle.
 - Introdotti Snyk, Unleash, OpenTelemetry → NewRelic, e una regola "Clean as you Code" che nessuno ha ancora osato rompere.
+- Chiuse 12 grosse epiche di ingegneria nei primi due trimestri, con altre 4 in cottura.
+- Tenute oltre 6 presentazioni interne per condividere quello che avevamo imparato — spiegare le cose a voce alta è un ottimo modo per accorgersi di cosa è ancora rotto.
+- Segnalati i rischi poco appariscenti prima che diventassero incidenti: un Debezium instabile, una falla di sicurezza legata a password condivise, e un dominio che si era silenziosamente frammentato in pezzi di cui nessuno aveva davvero la proprietà.
 
 ### Impact
 - Il GTV aziendale è cresciuto da £400k a oltre £1M al mese, in meno di 6 mesi.
-- Cycle time giù del 60%. Copertura dei test salita dal 25% all'85%. Coinvolgimento del team (OfficeVibe) salito da 7,2 a 8,6.
+- Cycle time giù del 60%. Copertura dei test salita dal 25% all'89%. Coinvolgimento del team (OfficeVibe) salito da 7,2 a 8,6.
 
 ### Technologies
 Java, Spring, Kafka, PostgreSQL (EDB), Elasticsearch, AWS, Kubernetes, GitHub Copilot, OpenTelemetry, SonarQube, Snyk, Unleash

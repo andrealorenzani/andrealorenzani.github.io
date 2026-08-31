@@ -12,15 +12,19 @@ end: present
 icon: 🤖
 
 ### Achievements
+- Took full ownership of the SmartPay platform within my first two months on the job — architecture, delivery cadence, the lot. Fast, apparently. My manager noticed too.
 - Built production AI agents and applications from scratch — not demos, actual things running live. 30–50% of incidents now get auto-triaged before a human even opens Slack.
 - Built the SRE Rota Intelligence Tool: it reads our on-call schedule from Confluence, reads the support tickets, and quietly warns us when the rota is about to go wrong. 100% AI-generated code, which still makes me a little nervous and a lot proud.
 - Got the whole 9-person team writing 100% of new tests with AI assistance, and the last 8 engineering epics were documented entirely by AI. My wrists thank me.
 - Authored the GitHub Copilot instructions and AI skill definitions the team now uses daily — someone has to write the rules before the robots can follow them.
 - Introduced Snyk, Unleash, OpenTelemetry → NewRelic, and a "Clean as you Code" rule nobody has dared break yet.
+- Closed 12 big engineering epics in the first two quarters, with 4 more cooking.
+- Gave 6+ internal presentations sharing what we'd learned — explaining something out loud is a great way to notice what's actually still broken.
+- Flagged the unglamorous risks before they became incidents: a flaky Debezium setup, a shared-password security hole, and a domain that had quietly fragmented into pieces nobody fully owned.
 
 ### Impact
 - Company GTV grew from £400k to £1M+ a month, in under 6 months.
-- Cycle time down 60%. Test coverage up from 25% to 85%. Team engagement (OfficeVibe) up from 7.2 to 8.6.
+- Cycle time down 60%. Test coverage up from 25% to 89%. Team engagement (OfficeVibe) up from 7.2 to 8.6.
 
 ### Technologies
 Java, Spring, Kafka, PostgreSQL (EDB), Elasticsearch, AWS, Kubernetes, GitHub Copilot, OpenTelemetry, SonarQube, Snyk, Unleash
