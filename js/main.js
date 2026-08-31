@@ -102,7 +102,7 @@
   }
 
   function acronymize(root) {
-    if (!acronymRegex) return;
+    if (!root || !acronymRegex) return;
     const walker = document.createTreeWalker(root, NodeFilter.SHOW_TEXT, {
       acceptNode(node) {
         if (!node.nodeValue || !node.nodeValue.trim()) return NodeFilter.FILTER_REJECT;
@@ -207,7 +207,9 @@
     document.getElementById('hero-stats').textContent = stats;
     if (meta.cta) document.getElementById('hero-cta').textContent = meta.cta;
 
-    acronymize(document.getElementById('hero'));
+    // The hero <section> is id="top" (that id doubles as the "Home" nav
+    // anchor) — .hero is only its CSS class, not an element id.
+    acronymize(document.getElementById('top'));
   }
 
   // ---------------------------------------------------------------------
