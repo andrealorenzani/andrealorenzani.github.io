@@ -2,7 +2,11 @@
 
 Andrea Lorenzani's personal CV site: a friendly, slightly funnier version of
 the usual CV, in his own voice — experience, soft skills, education, hobbies
-and contacts, each with popups or hover tooltips.
+and contacts, each with popups or hover tooltips. English at `/`, Italian at
+[`/it/`](https://andrealorenzani.github.io/it/) — a flag switcher in the top
+nav links between them, English is the default. See
+[docs/website-content-format.md §9](docs/website-content-format.md) before
+adding a third language.
 
 Plain HTML/CSS/JS. No build step, no framework, no dependencies beyond two
 Google Fonts. GitHub Pages itself *is* a real static HTTP server — this site
@@ -39,7 +43,8 @@ browsers):
 
 ```sh
 python3 -m http.server 8000
-# then open http://localhost:8000/
+# then open http://localhost:8000/        (English)
+# or       http://localhost:8000/it/      (Italian)
 ```
 
 ## Why the `.nojekyll` file matters
@@ -58,12 +63,14 @@ build step entirely, so every file is served byte-for-byte as committed.
 ## Structure
 
 ```
-index.html          Page structure only — no hardcoded content
-css/style.css        All visual design
-js/md-parser.js       Tiny parser for the data file format
-js/main.js            Loads data/*.md, renders every section, wires up popups
-data/*.md             Every fact on the site — see docs/website-content-format.md
-img/*.png              The chibi illustrations used per section
-docs/                 Format documentation
+index.html          English page structure — no hardcoded content
+data/*.md             English content — every fact on the site
+it/index.html          Italian page structure (shares css/js/img with English via absolute paths)
+it/data/*.md            Italian content — full translation, not a template
+css/style.css        All visual design (shared by every language)
+js/md-parser.js       Tiny parser for the data file format (shared)
+js/main.js            Loads data/*.md, renders every section, wires up popups (shared; UI/logic strings like month names come from the I18N table inside it)
+img/*.png              The chibi illustrations used per section (shared)
+docs/                 Format documentation, incl. how to add a language (§9)
 .nojekyll             Disables Jekyll — see above, never remove
 ```

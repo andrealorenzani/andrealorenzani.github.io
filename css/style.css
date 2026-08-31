@@ -121,6 +121,56 @@ a { color: var(--coral-dark); }
   color: #fff;
 }
 
+.lang-switch {
+  display: flex;
+  gap: 0.35rem;
+  flex: 0 0 auto;
+}
+
+.lang-flag {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+  text-decoration: none;
+  padding: 0.35rem 0.6rem;
+  border-radius: 999px;
+  border: 1px solid transparent;
+  font-size: 1.05rem;
+  line-height: 1;
+  opacity: 0.55;
+  filter: grayscale(55%);
+  transition: opacity 0.15s ease, filter 0.15s ease, border-color 0.15s ease, background 0.15s ease;
+}
+
+.lang-flag .lang-code {
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: 0.72rem;
+  color: var(--ink-soft);
+  letter-spacing: 0.04em;
+}
+
+.lang-flag:hover,
+.lang-flag:focus-visible {
+  opacity: 0.85;
+  filter: grayscale(0%);
+  background: var(--bg-alt);
+  outline: none;
+}
+
+.lang-flag.is-active {
+  opacity: 1;
+  filter: grayscale(0%);
+  border-color: var(--card-border);
+  background: var(--card-bg);
+  box-shadow: var(--shadow);
+  cursor: default;
+}
+
+.lang-flag.is-active .lang-code {
+  color: var(--coral-dark);
+}
+
 /* ---------------------------------------------------------------------
    Shared section layout: image + copy, alternating sides
    --------------------------------------------------------------------- */

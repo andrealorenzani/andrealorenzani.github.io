@@ -207,7 +207,7 @@ current role.
 
 ## 7. Adding a whole new section
 
-1. Create `github.io/data/<section>.md` in one of the three shapes above.
+1. Create `data/<section>.md` in one of the three shapes above.
 2. Add a `<section>` block to `index.html` with the container `id`s your
    render function will target (copy an existing section as a template —
    `section--img-left` puts the portrait image first in the DOM/on the left,
@@ -239,21 +239,89 @@ as plain text, and this whole fetch-and-parse approach would break the
 moment the site went live — while still looking perfectly fine in local
 preview, since a plain `python3 -m http.server` never runs Jekyll at all.
 
-The fix is the empty **`github.io/.nojekyll`** file. Its mere presence at
-the published root tells GitHub Pages to skip the Jekyll build entirely and
-serve every file exactly as committed. It must ship with every deploy —
-watch out for zip tools or file managers that silently drop dotfiles when
-copying this folder into a Pages repo.
+The fix is the empty **`.nojekyll`** file at the repo root. Its mere
+presence tells GitHub Pages to skip the Jekyll build entirely and serve
+every file exactly as committed. It must ship with every deploy — watch out
+for zip tools or file managers that silently drop dotfiles when copying
+this repo's contents somewhere else.
 
-## 9. Running it locally
+---
+
+## 9. Adding a language (i18n)
+
+The site currently ships English at `/` and Italian at `/it/`. Both
+language pages share the exact same `css/style.css`, `js/md-parser.js` and
+`js/main.js` — nothing about the code is duplicated per language. This only
+works because of two conventions:
+
+**1. Shared assets are referenced with root-absolute paths.** `index.html`
+and `it/index.html` both link `/css/style.css`, `/js/md-parser.js`,
+`/js/main.js`, and `main.js` itself builds every image `src` as
+`/img/<filename>` (an `IMG_DIR` constant, not a relative `'img/'` string).
+An absolute path resolves to the same file (`https://andrealorenzani.github.io/css/style.css`)
+no matter which page — `/` or `/it/` — loaded it. This is deliberately
+**not** the general "always use relative paths" advice you'd give a
+portable template; it's safe specifically because this site is known to be
+deployed at the true root of a `<username>.github.io` user site (never a
+project-page subpath). If this site were ever forked into a project-page
+deployment, these would need to go back to being relative.
+
+**2. Only `data/*.md` is genuinely per-language, and it's resolved
+page-relatively.** `main.js` still fetches `data/profile.md` (a relative
+path), so `/index.html` reads `/data/profile.md` while `/it/index.html`
+reads `/it/data/profile.md` — each language page has its own adjacent
+`data/` folder with the exact same file names as English, fully translated.
+This is the only per-language content that exists; there is no "shared
+data files by default, override per language" mechanism — every `data/*.md`
+file must exist standalone in each language folder.
+
+**3. A handful of strings are neither content nor markup — they're logic.**
+Month names, the word between a role's start/end dates ("to" / "a"),
+singular vs. plural units ("year"/"years" vs. "anno"/"anni"), and the
+modal's section headers ("Top achievements", "Impact"...) are produced by
+`main.js` itself, not read from a data file. These live in the `I18N`
+object near the top of `main.js`, keyed by two-letter language code. At
+init, `main.js` reads `document.documentElement.lang` off the current page
+(`<html lang="en">` vs `<html lang="it">`) to pick which entry of `I18N` to
+use. **Everything else — every fact, every sentence a visitor actually
+reads as content — lives in `data/*.md` and must be hand-translated, not
+templated.** Translations should read as if Andrea wrote them natively in
+that language (see `agent_writing_style.md` in the `agentic_cv` project for
+his voice), not as a literal machine translation.
+
+**To add a new language** (say French at `/fr/`):
+1. Create `fr/index.html`: copy `it/index.html`, set `<html lang="fr">`,
+   translate every hardcoded string in the HTML itself (nav labels, title,
+   meta description, skip link, footer, the hero's static "eyebrow" line,
+   the modal's `aria-label`), and update the `lang-switch` block to link to
+   all three languages with the right one marked `is-active`/`aria-current`.
+   **Update the `lang-switch` block on every other language's page too** —
+   adding a language means every existing page needs a link to the new one.
+2. Add an `fr` entry to the `I18N` object in `main.js` (copy the `en` or
+   `it` block and translate every value).
+3. Create `fr/data/*.md` — a full translation of every file in `data/`,
+   including `acronyms.md` (acronym letters are typically kept as they
+   commonly appear in that language's own tech/business speech — e.g. this
+   site kept "AI" rather than forcing "IA" for the Italian version, because
+   that's how Italian tech speech actually uses it — but the *meaning* text
+   after the colon should be translated).
+4. Add `<link rel="alternate" hreflang="fr" href="https://andrealorenzani.github.io/fr/">`
+   to the `<head>` of every language's `index.html`.
+5. Test locally (see §10) hitting `/fr/` directly, and check the flag/lang
+   switcher round-trips correctly from every other language back to French.
+
+---
+
+## 10. Running it locally
 
 Because the page `fetch()`s the `.md` files, it needs to be served over
 HTTP — opening `index.html` directly as a `file://` URL will fail in most
-browsers. From `github.io/`:
+browsers. From the repo root:
 
 ```sh
 python3 -m http.server 8000
-# then open http://localhost:8000/
+# then open http://localhost:8000/        (English)
+# or       http://localhost:8000/it/      (Italian)
 ```
 
 ---

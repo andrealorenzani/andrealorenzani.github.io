@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Andrea Lorenzani — Ingegnere, Leader, Professionista che Spiega Troppo</title>
+<meta name="description" content="Il CV personale, un po' troppo sincero, di Andrea Lorenzani: esperienza, soft skill, formazione e hobby, a modo suo.">
+<link rel="icon" href="data:,">
+<link rel="alternate" hreflang="en" href="https://andrealorenzani.github.io/">
+<link rel="alternate" hreflang="it" href="https://andrealorenzani.github.io/it/">
+<link rel="alternate" hreflang="x-default" href="https://andrealorenzani.github.io/">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@500;700;800&amp;family=Nunito:wght@400;600;700;800&amp;display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+
+<a class="skip-link" href="#main">Vai al contenuto</a>
+
+<header class="topnav">
+  <a class="topnav-brand" href="#top">Andrea Lorenzani</a>
+  <nav aria-label="Navigazione delle sezioni">
+    <a href="#top">Home</a>
+    <a href="#experience">Esperienza</a>
+    <a href="#soft-skills">Soft Skill</a>
+    <a href="#education">Formazione</a>
+    <a href="#hobbies">Hobby</a>
+    <a href="#contacts">Contatti</a>
+  </nav>
+  <div class="lang-switch" role="group" aria-label="Language / Lingua">
+    <a href="/" class="lang-flag" hreflang="en" lang="en" title="English">
+      <span aria-hidden="true">🇬🇧</span><span class="lang-code">EN</span>
+    </a>
+    <a href="/it/" class="lang-flag is-active" aria-current="page" hreflang="it" lang="it" title="Italiano (corrente)">
+      <span aria-hidden="true">🇮🇹</span><span class="lang-code">IT</span>
+    </a>
+  </div>
+</header>
+
+<main id="main">
+
+  <!-- ===================== HERO / BENVENUTO ===================== -->
+  <section id="top" class="hero" aria-labelledby="hero-name">
+    <div class="hero-top">
+      <div class="hero-portrait">
+        <img id="hero-image" alt="" width="343" height="445">
+      </div>
+      <div class="hero-heading">
+        <p class="eyebrow">Ciao, sono</p>
+        <h1 id="hero-name">Andrea Lorenzani</h1>
+        <p id="hero-tagline" class="hero-tagline"></p>
+      </div>
+    </div>
+    <div class="hero-copy">
+      <p id="hero-intro" class="hero-intro"></p>
+      <p id="hero-stats" class="hero-stats"></p>
+      <a id="hero-cta" class="hero-cta" href="#experience">Scorri giù. Diventa più divertente.</a>
+      <p id="hero-ai-note" class="hero-ai-note"></p>
+    </div>
+  </section>
+
+  <!-- ===================== ESPERIENZA ===================== -->
+  <section id="experience" class="section section--img-right" aria-labelledby="experience-title">
+    <div class="section-copy">
+      <h2 id="experience-title" class="section-title"></h2>
+      <p id="experience-subtitle" class="section-subtitle"></p>
+      <ul id="experience-list" class="exp-list"></ul>
+    </div>
+    <div class="section-portrait">
+      <img id="experience-image" alt="" width="547" height="431">
+    </div>
+  </section>
+
+  <!-- ===================== SOFT SKILL ===================== -->
+  <section id="soft-skills" class="section section--img-left" aria-labelledby="skills-title">
+    <div class="section-portrait">
+      <img id="skills-image" alt="" width="432" height="434">
+    </div>
+    <div class="section-copy">
+      <h2 id="skills-title" class="section-title"></h2>
+      <p id="skills-subtitle" class="section-subtitle"></p>
+      <div id="skills-grid" class="skills-grid"></div>
+    </div>
+  </section>
+
+  <!-- ===================== FORMAZIONE ===================== -->
+  <section id="education" class="section section--img-right" aria-labelledby="education-title">
+    <div class="section-copy">
+      <h2 id="education-title" class="section-title"></h2>
+      <p id="education-subtitle" class="section-subtitle"></p>
+      <div id="education-list" class="edu-list"></div>
+    </div>
+    <div class="section-portrait">
+      <img id="education-image" alt="" width="376" height="439">
+    </div>
+  </section>
+
+  <!-- ===================== HOBBY ===================== -->
+  <section id="hobbies" class="section section--img-left" aria-labelledby="hobbies-title">
+    <div class="section-portrait">
+      <img id="hobbies-image" alt="" width="465" height="425">
+    </div>
+    <div class="section-copy">
+      <h2 id="hobbies-title" class="section-title"></h2>
+      <p id="hobbies-subtitle" class="section-subtitle"></p>
+      <ul id="hobbies-list" class="hobbies-list"></ul>
+    </div>
+  </section>
+
+  <!-- ===================== CONTATTI ===================== -->
+  <section id="contacts" class="section section--img-right" aria-labelledby="contacts-title">
+    <div class="section-copy">
+      <h2 id="contacts-title" class="section-title"></h2>
+      <p id="contacts-subtitle" class="section-subtitle"></p>
+      <div id="contacts-list" class="contacts-list"></div>
+    </div>
+    <div class="section-portrait">
+      <img id="contacts-image" alt="" width="372" height="442">
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <p>&copy; <span id="year"></span> Andrea Lorenzani. Realizzato con HTML, CSS e JS puri — nessun framework è stato maltrattato nella creazione di questo sito.</p>
+</footer>
+
+<!-- Modale usato per i popup di Esperienza e Soft Skill -->
+<div id="modal" class="modal" role="dialog" aria-modal="true" aria-label="Dettagli">
+  <div class="modal-card" id="modal-body"></div>
+</div>
+
+<script src="/js/md-parser.js"></script>
+<script src="/js/main.js"></script>
+</body>
+</html>

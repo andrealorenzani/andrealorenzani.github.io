@@ -6,15 +6,72 @@
  *
  * All facts live in data/*.md. This file only knows how to turn that data
  * into HTML — see docs/website-content-format.md for the content format.
+ *
+ * This one file is shared by every language version of the site (English at
+ * "/", Italian at "/it/", ...). Content differs because each language page
+ * fetches its own adjacent data/*.md files. The small amount of "chrome"
+ * text this file itself produces (month names, "to"/"present", singular vs
+ * plural units, modal section headers) is not content — it comes from the
+ * I18N table below, keyed by the page's <html lang="..."> attribute. See
+ * docs/website-content-format.md §9 before adding a new language.
  */
 (function () {
   'use strict';
 
   const DATA_DIR = 'data/';
-  const MONTH_NAMES = [
-    'January', 'February', 'March', 'April', 'May', 'June',
-    'July', 'August', 'September', 'October', 'November', 'December',
-  ];
+  const IMG_DIR = '/img/';
+
+  const I18N = {
+    en: {
+      monthNames: [
+        'January', 'February', 'March', 'April', 'May', 'June',
+        'July', 'August', 'September', 'October', 'November', 'December',
+      ],
+      toWord: 'to',
+      present: 'present',
+      stillGoing: ' — still going',
+      year: 'year',
+      years: 'years',
+      month: 'month',
+      months: 'months',
+      zeroDuration: '0 months',
+      topAchievements: 'Top achievements',
+      impact: 'Impact',
+      technologies: 'Technologies',
+      notes: 'Notes',
+      inPractice: 'In practice',
+      softSkillLabel: 'Soft skill',
+      close: 'Close',
+      loadErrorPrefix: "Something didn't load right",
+      loadErrorSuffix: 'If you\'re viewing this from a local file:// path, serve the folder over HTTP instead — e.g. python3 -m http.server — then reload.',
+    },
+    it: {
+      monthNames: [
+        'Gennaio', 'Febbraio', 'Marzo', 'Aprile', 'Maggio', 'Giugno',
+        'Luglio', 'Agosto', 'Settembre', 'Ottobre', 'Novembre', 'Dicembre',
+      ],
+      toWord: 'a',
+      present: 'oggi',
+      stillGoing: ' — ancora in corso',
+      year: 'anno',
+      years: 'anni',
+      month: 'mese',
+      months: 'mesi',
+      zeroDuration: '0 mesi',
+      topAchievements: 'Risultati principali',
+      impact: 'Impatto',
+      technologies: 'Tecnologie',
+      notes: 'Note',
+      inPractice: 'In pratica',
+      softSkillLabel: 'Soft skill',
+      close: 'Chiudi',
+      loadErrorPrefix: 'Qualcosa non si è caricato correttamente',
+      loadErrorSuffix: 'Se stai visualizzando questa pagina da un percorso locale file://, servi la cartella via HTTP — ad es. python3 -m http.server — poi ricarica.',
+    },
+  };
+
+  const LANG = (document.documentElement.lang || 'en').slice(0, 2);
+  const T = I18N[LANG] || I18N.en;
 
   // ---------------------------------------------------------------------
   // Date / duration helpers
@@ -27,7 +84,7 @@
 
   function monthLabel(str) {
     const { y, m } = parseYearMonth(str);
-    return `${MONTH_NAMES[m - 1]} ${y}`;
+    return `${T.monthNames[m - 1]} ${y}`;
   }
 
   // Live "time since" counter, e.g. for the header stats. Standard
@@ -68,9 +125,9 @@
     const years = Math.floor(totalMonths / 12);
     const months = totalMonths % 12;
     const parts = [];
-    if (years > 0) parts.push(`${years} year${years !== 1 ? 's' : ''}`);
-    if (months > 0) parts.push(`${months} month${months !== 1 ? 's' : ''}`);
-    return parts.length ? parts.join(' ') : '0 months';
+    if (years > 0) parts.push(`${years} ${years !== 1 ? T.years : T.year}`);
+    if (months > 0) parts.push(`${months} ${months !== 1 ? T.months : T.month}`);
+    return parts.length ? parts.join(' ') : T.zeroDuration;
   }
 
   // ---------------------------------------------------------------------
@@ -186,7 +243,7 @@
   // ---------------------------------------------------------------------
 
   function renderHero(meta) {
-    document.getElementById('hero-image').src = 'img/' + meta.image;
+    document.getElementById('hero-image').src = IMG_DIR + meta.image;
     document.getElementById('hero-image').alt = meta.image_alt || '';
     document.getElementById('hero-name').textContent = meta.name;
     document.getElementById('hero-tagline').textContent = meta.tagline;
@@ -219,18 +276,18 @@
     document.getElementById('experience-title').textContent = meta.title;
     document.getElementById('experience-subtitle').textContent = meta.subtitle;
     const img = document.getElementById('experience-image');
-    img.src = 'img/' + meta.image;
+    img.src = IMG_DIR + meta.image;
     img.alt = meta.image_alt || '';
 
     const list = document.getElementById('experience-list');
     list.innerHTML = '';
 
-    items.forEach((entry, index) => {
+    items.forEach((entry) => {
       const { totalMonths, current } = roleDuration(entry.meta.start, entry.meta.end);
-      const durationLabel = formatDuration(totalMonths) + (current ? ' — still going' : '');
+      const durationLabel = formatDuration(totalMonths) + (current ? T.stillGoing : '');
       const periodLabel = current
-        ? `${monthLabel(entry.meta.start)} to present`
-        : `${monthLabel(entry.meta.start)} to ${monthLabel(entry.meta.end)}`;
+        ? `${monthLabel(entry.meta.start)} ${T.toWord} ${T.present}`
+        : `${monthLabel(entry.meta.start)} ${T.toWord} ${monthLabel(entry.meta.end)}`;
 
       const li = document.createElement('li');
       li.className = 'exp-item' + (current ? ' exp-item--current' : '');
@@ -279,14 +336,14 @@
   function buildExperienceModal(entry, periodLabel, durationLabel) {
     const s = entry.sections;
     return `
-      <button class="modal-close" aria-label="Close">&times;</button>
+      <button class="modal-close" aria-label="${T.close}">&times;</button>
       <div class="modal-eyebrow">${entry.meta.icon || '💼'} ${entry.meta.company}</div>
       <h3 class="modal-title">${entry.title}</h3>
       <p class="modal-period">${periodLabel} <strong>(${durationLabel})</strong></p>
-      ${s.Achievements ? `<h4>Top achievements</h4>${bulletHTML(s.Achievements)}` : ''}
-      ${s.Impact ? `<h4>Impact</h4>${bulletHTML(s.Impact)}` : ''}
-      ${s.Technologies ? `<h4>Technologies</h4><div class="tag-list">${tagList(s.Technologies)}</div>` : ''}
-      ${s.Notes ? `<h4>Notes</h4><p class="modal-notes">${s.Notes}</p>` : ''}
+      ${s.Achievements ? `<h4>${T.topAchievements}</h4>${bulletHTML(s.Achievements)}` : ''}
+      ${s.Impact ? `<h4>${T.impact}</h4>${bulletHTML(s.Impact)}` : ''}
+      ${s.Technologies ? `<h4>${T.technologies}</h4><div class="tag-list">${tagList(s.Technologies)}</div>` : ''}
+      ${s.Notes ? `<h4>${T.notes}</h4><p class="modal-notes">${s.Notes}</p>` : ''}
     `;
   }
 
@@ -298,7 +355,7 @@
     document.getElementById('skills-title').textContent = meta.title;
     document.getElementById('skills-subtitle').textContent = meta.subtitle;
     const img = document.getElementById('skills-image');
-    img.src = 'img/' + meta.image;
+    img.src = IMG_DIR + meta.image;
     img.alt = meta.image_alt || '';
 
     const grid = document.getElementById('skills-grid');
@@ -323,11 +380,11 @@
   function buildSkillModal(entry) {
     const s = entry.sections;
     return `
-      <button class="modal-close" aria-label="Close">&times;</button>
-      <div class="modal-eyebrow">${entry.meta.icon || '✨'} Soft skill</div>
+      <button class="modal-close" aria-label="${T.close}">&times;</button>
+      <div class="modal-eyebrow">${entry.meta.icon || '✨'} ${T.softSkillLabel}</div>
       <h3 class="modal-title">${entry.title}</h3>
       ${s.Details ? `<p class="modal-notes">${s.Details}</p>` : ''}
-      ${s.Examples ? `<h4>In practice</h4>${bulletHTML(s.Examples)}` : ''}
+      ${s.Examples ? `<h4>${T.inPractice}</h4>${bulletHTML(s.Examples)}` : ''}
     `;
   }
 
@@ -339,7 +396,7 @@
     document.getElementById('education-title').textContent = meta.title;
     document.getElementById('education-subtitle').textContent = meta.subtitle;
     const img = document.getElementById('education-image');
-    img.src = 'img/' + meta.image;
+    img.src = IMG_DIR + meta.image;
     img.alt = meta.image_alt || '';
 
     const list = document.getElementById('education-list');
@@ -393,7 +450,7 @@
     document.getElementById('hobbies-title').textContent = meta.title;
     document.getElementById('hobbies-subtitle').textContent = meta.subtitle;
     const img = document.getElementById('hobbies-image');
-    img.src = 'img/' + meta.image;
+    img.src = IMG_DIR + meta.image;
     img.alt = meta.image_alt || '';
 
     const list = document.getElementById('hobbies-list');
@@ -419,7 +476,7 @@
     document.getElementById('contacts-title').textContent = meta.title;
     document.getElementById('contacts-subtitle').textContent = meta.subtitle;
     const img = document.getElementById('contacts-image');
-    img.src = 'img/' + meta.image;
+    img.src = IMG_DIR + meta.image;
     img.alt = meta.image_alt || '';
 
     const list = document.getElementById('contacts-list');
@@ -493,9 +550,7 @@
     const main = document.querySelector('main');
     if (main) {
       main.innerHTML = `<p style="padding:3rem;text-align:center;">
-        Something didn't load right (${err.message}). If you're viewing this
-        from a local <code>file://</code> path, serve the folder over HTTP
-        instead — e.g. <code>python3 -m http.server</code> — then reload.
+        ${T.loadErrorPrefix} (${err.message}). ${T.loadErrorSuffix}
       </p>`;
     }
     // Loading failed, so is-loaded never gets set the normal way — but the
