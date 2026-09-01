@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:xhtml="http://www.w3.org/1999/xhtml">
+  <url>
+    <loc>https://andrealorenzani.github.io/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>1.0</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://andrealorenzani.github.io/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://andrealorenzani.github.io/it/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://andrealorenzani.github.io/"/>
+  </url>
+  <url>
+    <loc>https://andrealorenzani.github.io/it/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>1.0</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://andrealorenzani.github.io/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://andrealorenzani.github.io/it/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://andrealorenzani.github.io/"/>
+  </url>
+</urlset>
