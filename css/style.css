@@ -121,6 +121,31 @@ a { color: var(--coral-dark); }
   color: #fff;
 }
 
+.topnav-actions {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  flex-wrap: wrap;
+}
+
+.cv-download {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.45rem 0.95rem;
+  border-radius: 999px;
+  background: var(--coral);
+  color: #fff;
+  font-weight: 700;
+  font-size: 0.85rem;
+  text-decoration: none;
+  transition: background 0.15s ease;
+}
+.cv-download:hover, .cv-download:focus-visible {
+  background: var(--coral-dark);
+  outline: none;
+}
+
 .lang-switch {
   display: flex;
   gap: 0.35rem;
