@@ -12,8 +12,10 @@ end: present
 icon: 🤖
 
 ### Achievements
+- Won Best Initiative in Embedded Finance at the PAY360 Awards 2026, for SmartPay. Yes, I checked the winners page twice.
 - Built production AI agents and applications from scratch — not demos, actual things running live. 30–50% of incidents now get auto-triaged before a human even opens Slack.
 - Built the SRE Rota Intelligence Tool: it reads our on-call schedule from Confluence, reads the support tickets, and quietly warns us when the rota is about to go wrong. 100% AI-generated code, which still makes me a little nervous and a lot proud.
+- Designed and led a cross-team Risk Management and Anti-Fraud platform, and took spec-driven development and AI all the way from product definition to code. Went back to building ETLs with Athena and Lambdas too — this time with AI doing the typing.
 - Got the whole 9-person team writing 100% of new tests with AI assistance, and the last 8 engineering epics were documented entirely by AI. My wrists thank me.
 - Authored the GitHub Copilot instructions and AI skill definitions the team now uses daily — someone has to write the rules before the robots can follow them.
 - Introduced Snyk, Unleash, OpenTelemetry → NewRelic, and a "Clean as you Code" rule nobody has dared break yet. Critical Snyk flags are basically at zero now, and feature flagging stuck across the whole team.
@@ -29,7 +31,7 @@ icon: 🤖
 Java, Spring, Kafka, PostgreSQL (EDB), Elasticsearch, AWS, Kubernetes, GitHub Copilot, OpenTelemetry, SonarQube, Snyk, Unleash
 
 ### Notes
-9 direct reports, 20+ people in the wider cross-functional team, building SmartPay — a B2B invoice payment platform. I still write code, about 30% of my week, give or take.
+9 direct reports, 20+ people in the wider cross-functional team, building SmartPay — a B2B invoice payment platform. Along the way we shipped international payments, differential pricing and risk management, payment guarantee and several kinds of invoice factoring, platform trading limits, Financial Operations admin panels, Zendesk integration, and Sisense analytics with custom ETL reports. I still write code, about 30% of my week, give or take.
 
 ---
 

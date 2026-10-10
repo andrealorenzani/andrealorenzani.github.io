@@ -12,8 +12,10 @@ end: present
 icon: 🤖
 
 ### Achievements
+- Vinto il premio Best Initiative in Embedded Finance ai PAY360 Awards 2026, per SmartPay. Sì, ho ricontrollato la pagina dei vincitori due volte.
 - Costruito agenti e applicazioni AI in produzione da zero — non demo, cose vere che girano live. Il 30–50% degli incidenti viene ora auto-triagato prima ancora che un umano apra Slack.
 - Costruito lo SRE Rota Intelligence Tool: legge il calendario di reperibilità da Confluence, legge i ticket di supporto e ci avvisa in silenzio quando la rota sta per andare storta. Codice generato al 100% dall'AI, cosa che mi rende ancora un po' nervoso e molto orgoglioso.
+- Progettato e guidato una piattaforma cross-team di Risk Management e Anti-Fraud, e portato lo spec-driven development e l'AI dalla definizione di prodotto fino al codice. Sono anche tornato a costruire ETL con Athena e Lambda — stavolta con l'AI che scrive al posto mio.
 - Portato tutto il team di 9 persone a scrivere il 100% dei nuovi test con l'aiuto dell'AI, e le ultime 8 epiche di ingegneria sono state documentate interamente dall'AI. I miei polsi ringraziano.
 - Scritte le istruzioni per GitHub Copilot e le definizioni delle skill AI che il team usa ogni giorno — qualcuno deve pur scrivere le regole prima che i robot possano seguirle.
 - Introdotti Snyk, Unleash, OpenTelemetry → NewRelic, e una regola "Clean as you Code" che nessuno ha ancora osato rompere. Le segnalazioni critiche di Snyk sono ormai quasi a zero, e il feature flagging è adottato da tutto il team.
@@ -29,7 +31,7 @@ icon: 🤖
 Java, Spring, Kafka, PostgreSQL (EDB), Elasticsearch, AWS, Kubernetes, GitHub Copilot, OpenTelemetry, SonarQube, Snyk, Unleash
 
 ### Notes
-9 riporti diretti, oltre 20 persone nel team cross-funzionale più ampio, costruendo SmartPay — una piattaforma di pagamento fatture B2B. Scrivo ancora codice, circa il 30% della mia settimana, più o meno.
+9 riporti diretti, oltre 20 persone nel team cross-funzionale più ampio, costruendo SmartPay — una piattaforma di pagamento fatture B2B. Nel frattempo abbiamo rilasciato pagamenti internazionali, pricing differenziato e gestione del rischio, garanzia di pagamento e vari tipi di invoice factoring, limiti di trading della piattaforma, pannelli di amministrazione per le Financial Operations, integrazione Zendesk e analytics con Sisense con report ETL custom. Scrivo ancora codice, circa il 30% della mia settimana, più o meno.
 
 ---
 

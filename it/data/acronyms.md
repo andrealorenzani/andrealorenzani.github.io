@@ -45,3 +45,4 @@ CAPM: Certified Associate in Project Management (certificazione PMI)
 PMI: Project Management Institute
 ICP: ICAgile Certified Professional
 PADI: Professional Association of Diving Instructors
+SDD: Spec-Driven Development
