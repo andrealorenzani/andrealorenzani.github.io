@@ -50,6 +50,18 @@
       .join('\n');
   }
 
+  // Turn inline `[label](https://url)` links into anchors. Only http(s) and
+  // mailto URLs are accepted, anything else is left as literal text. Applied
+  // to bullet items and paragraph text; the output is HTML because the
+  // renderer puts these strings in via innerHTML. Links open in a new tab.
+  function inlineLinks(text) {
+    return text.replace(
+      /\[([^\]\n]+)\]\(((?:https?:\/\/|mailto:)[^\s)"'<>]+)\)/g,
+      (m, label, url) =>
+        `<a href="${url}" target="_blank" rel="noopener noreferrer">${label}</a>`
+    );
+  }
+
   // Decide what shape a subsection body should parse into:
   //  - all bullet lines ("- ...")   -> string[]
   //  - all "key: value" lines       -> {key: value}
@@ -59,7 +71,7 @@
     if (lines.length === 0) return '';
 
     if (lines.every((l) => /^- /.test(l.trim()))) {
-      return lines.map((l) => l.trim().replace(/^- /, '').trim());
+      return lines.map((l) => inlineLinks(l.trim().replace(/^- /, '').trim()));
     }
 
     // A real dict block always has 2+ short "Label: value" lines (e.g. the
@@ -80,7 +92,7 @@
       return obj;
     }
 
-    return lines.join(' ').trim();
+    return inlineLinks(lines.join(' ').trim());
   }
 
   // Parse a body made of `## Title` entries, each optionally followed by

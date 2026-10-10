@@ -12,7 +12,7 @@ end: present
 icon: 🤖
 
 ### Achievements
-- Vinto il premio Best Initiative in Embedded Finance ai PAY360 Awards 2026, per SmartPay. Sì, ho ricontrollato la pagina dei vincitori due volte.
+- Vinto il premio Best Initiative in Embedded Finance ai [PAY360 Awards 2026](https://thepay360awards.com/2026-winners/), per SmartPay. Sì, ho ricontrollato la pagina dei vincitori due volte ([il mio post](https://www.linkedin.com/feed/update/urn:li:activity:7514016352542851072/)).
 - Costruito agenti e applicazioni AI in produzione da zero — non demo, cose vere che girano live. Il 30–50% degli incidenti viene ora auto-triagato prima ancora che un umano apra Slack.
 - Costruito lo SRE Rota Intelligence Tool: legge il calendario di reperibilità da Confluence, legge i ticket di supporto e ci avvisa in silenzio quando la rota sta per andare storta. Codice generato al 100% dall'AI, cosa che mi rende ancora un po' nervoso e molto orgoglioso.
 - Progettato e guidato una piattaforma cross-team di Risk Management e Anti-Fraud, e portato lo spec-driven development e l'AI dalla definizione di prodotto fino al codice. Sono anche tornato a costruire ETL con Athena e Lambda — stavolta con l'AI che scrive al posto mio.

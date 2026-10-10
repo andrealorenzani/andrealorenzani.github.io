@@ -23,8 +23,14 @@ popups for each of them.
 This is **not** full CommonMark/Markdown — it's a small, predictable subset
 called `andrea-cv-md` here, designed to be readable as plain text and trivial
 to parse without a library. If you paste real Markdown into these files,
-some of it (bold, headings, dashes) will still work, but things like tables,
-nested lists, or inline links will not be understood.
+some of it (bold, headings, dashes) will still work, but things like tables
+or nested lists will not be understood.
+
+**Inline links are supported** in bullet items and paragraph text of
+`###` subsections (e.g. Achievements, Notes): write `[label](https://url)`
+and it renders as an anchor opening in a new tab. Only `http(s)://` and
+`mailto:` URLs are accepted; anything else stays literal text. Links are not
+processed inside `key: value` metadata, dict blocks or the hobbies list.
 
 ---
 
