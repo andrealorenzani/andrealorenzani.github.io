@@ -20,7 +20,7 @@ icon: 🤖
 - Scritte le istruzioni per GitHub Copilot e le definizioni delle skill AI che il team usa ogni giorno — qualcuno deve pur scrivere le regole prima che i robot possano seguirle.
 - Introdotti Snyk, Unleash, OpenTelemetry → NewRelic, e una regola "Clean as you Code" che nessuno ha ancora osato rompere. Le segnalazioni critiche di Snyk sono ormai quasi a zero, e il feature flagging è adottato da tutto il team.
 - Risolto il problema della "hero culture" — quella cosa per cui una sola persona resta l'unica capace di toccare un certo sistema. Seconda azienda in cui lo risolvo. Ridistribuita la proprietà finché nessuno, me compreso, era più insostituibile.
-- Guidato il primo progetto greenfield in azienda basato su spec-driven development, costruito con Speckit da zero.
+- Guidato il primo progetto greenfield in azienda basato su spec-driven development, costruito con Speckit da zero — e ora l'intero flusso gira così, dal PRD di prodotto allo sviluppo.
 - Riprogettata l'architettura e snellito i requisiti su diverse grosse componenti della piattaforma — incluso un sistema di credit control costruito da zero con integrazione Zendesk, e la rendicontazione Making Tax Digital che nessuno voleva toccare — rimuovendo i blocchi tecnici lungo il percorso.
 
 ### Impact

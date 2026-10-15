@@ -20,7 +20,7 @@ icon: 🤖
 - Authored the GitHub Copilot instructions and AI skill definitions the team now uses daily — someone has to write the rules before the robots can follow them.
 - Introduced Snyk, Unleash, OpenTelemetry → NewRelic, and a "Clean as you Code" rule nobody has dared break yet. Critical Snyk flags are basically at zero now, and feature flagging stuck across the whole team.
 - Fixed the "hero culture" problem — the thing where one person becomes the only one who can touch a given system. Second company I've fixed this in. Redistributed ownership until nobody was irreplaceable, including me.
-- Led the company's first spec-driven-development project, built with Speckit, from a blank page.
+- Led the company's first spec-driven-development project, built with Speckit from a blank page — and now the whole flow runs on it, from the Product PRD to development.
 - Redesigned the architecture and trimmed the requirements on several big platform pieces — including a credit control system built from scratch with Zendesk wired in, and the Making Tax Digital reporting nobody wanted to touch — clearing the technical blockers as I went.
 
 ### Impact
