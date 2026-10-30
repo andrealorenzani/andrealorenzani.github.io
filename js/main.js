@@ -294,10 +294,13 @@
         : `${monthLabel(entry.meta.start)} ${T.toWord} ${monthLabel(entry.meta.end)}`;
 
       const li = document.createElement('li');
-      li.className = 'exp-item' + (current ? ' exp-item--current' : '');
-      li.tabIndex = 0;
-      li.setAttribute('role', 'button');
-      li.setAttribute('aria-haspopup', 'dialog');
+      const noPopup = entry.meta.popup === 'none';
+      li.className = 'exp-item' + (current ? ' exp-item--current' : '') + (noPopup ? ' exp-item--static' : '');
+      if (!noPopup) {
+        li.tabIndex = 0;
+        li.setAttribute('role', 'button');
+        li.setAttribute('aria-haspopup', 'dialog');
+      }
 
       li.innerHTML = `
         <span class="exp-icon" aria-hidden="true">${entry.meta.icon || '💼'}</span>
@@ -306,15 +309,18 @@
           <span class="exp-sep"> — </span>
           <span class="exp-company">${entry.meta.company}</span>
           <span class="exp-period">${periodLabel} <em>(${durationLabel})</em></span>
+          ${entry.meta.summary ? `<span class="exp-summary">${entry.meta.summary}</span>` : ''}
         </span>
-        <span class="exp-arrow" aria-hidden="true">→</span>
+        ${noPopup ? '' : '<span class="exp-arrow" aria-hidden="true">→</span>'}
       `;
 
-      const openThis = () => openModal(buildExperienceModal(entry, periodLabel, durationLabel));
-      li.addEventListener('click', openThis);
-      li.addEventListener('keydown', (e) => {
-        if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); openThis(); }
-      });
+      if (!noPopup) {
+        const openThis = () => openModal(buildExperienceModal(entry, periodLabel, durationLabel));
+        li.addEventListener('click', openThis);
+        li.addEventListener('keydown', (e) => {
+          if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); openThis(); }
+        });
+      }
 
       list.appendChild(li);
     });

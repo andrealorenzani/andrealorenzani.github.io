@@ -60,6 +60,16 @@ Sono stato Principal Engineer e leader tecnico su tre squad — C3PO, ABS e Hori
 
 ---
 
+## Principal Software Engineer
+company: Landbay
+start: 2022-11
+end: 2023-07
+icon: 🏠
+summary: Londra, UK · Team Leader / Scrum Master di un team di 6 sviluppatori (4 backend, 2 frontend) e 2 Product Owner
+popup: none
+
+---
+
 ## Development Team Leader
 company: MetaPack Group
 start: 2019-04

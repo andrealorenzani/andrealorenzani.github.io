@@ -828,3 +828,8 @@ div.edu-card { cursor: default; }
   margin: 0.75rem 0;
   background: #fff;
 }
+
+/* Experience entry without a popup (e.g. Landbay) */
+.exp-item--static { cursor: default; }
+.exp-item--static:hover { transform: none; box-shadow: var(--shadow); border-left-color: var(--teal); }
+.exp-summary { display: block; margin-top: 0.25rem; font-size: 0.9rem; opacity: 0.85; }

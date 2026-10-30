@@ -60,6 +60,16 @@ I was Principal Engineer and technical leader across three squads — C3PO, ABS 
 
 ---
 
+## Principal Software Engineer
+company: Landbay
+start: 2022-11
+end: 2023-07
+icon: 🏠
+summary: London, UK · Team Leader / Scrum Master for a team of 6 developers (4 backend, 2 frontend) and 2 Product Owners
+popup: none
+
+---
+
 ## Development Team Leader
 company: MetaPack Group
 start: 2019-04
