@@ -42,6 +42,8 @@
       inPractice: 'In practice',
       softSkillLabel: 'Soft skill',
       close: 'Close',
+      certificate: 'Certificate',
+      openPdf: 'Open the PDF in a new tab',
       loadErrorPrefix: "Something didn't load right",
       loadErrorSuffix: 'If you\'re viewing this from a local file:// path, serve the folder over HTTP instead — e.g. python3 -m http.server — then reload.',
     },
@@ -65,6 +67,8 @@
       inPractice: 'In pratica',
       softSkillLabel: 'Soft skill',
       close: 'Chiudi',
+      certificate: 'Certificato',
+      openPdf: 'Apri il PDF in una nuova scheda',
       loadErrorPrefix: 'Qualcosa non si è caricato correttamente',
       loadErrorSuffix: 'Se stai visualizzando questa pagina da un percorso locale file://, servi la cartella via HTTP — ad es. python3 -m http.server — poi ricarica.',
     },
@@ -392,6 +396,18 @@
   // Render: education
   // ---------------------------------------------------------------------
 
+  function buildCertificateModal(entry) {
+    const url = entry.meta.certificate;
+    return `
+      <button class="modal-close" aria-label="${T.close}">&times;</button>
+      <div class="modal-eyebrow">${entry.meta.icon || '🎓'} ${T.certificate}</div>
+      <h3 class="modal-title">${entry.title}</h3>
+      <p class="modal-period">${entry.meta.institution} · ${entry.meta.period}</p>
+      <iframe class="cert-frame" src="${url}" title="${entry.title}"></iframe>
+      <p class="modal-notes"><a href="${url}" target="_blank" rel="noopener noreferrer">${T.openPdf} ↗</a></p>
+    `;
+  }
+
   function renderEducation(meta, items) {
     document.getElementById('education-title').textContent = meta.title;
     document.getElementById('education-subtitle').textContent = meta.subtitle;
@@ -403,13 +419,25 @@
     list.innerHTML = '';
 
     items.forEach((entry) => {
-      const isLink = !!entry.meta.link;
+      const certUrl = entry.meta.certificate;
+      const href = certUrl || entry.meta.link;
+      const isLink = !!href;
       const el = document.createElement(isLink ? 'a' : 'div');
       el.className = 'edu-card';
       if (isLink) {
-        el.href = entry.meta.link;
+        el.href = href;
         el.target = '_blank';
         el.rel = 'noopener noreferrer';
+      }
+      if (certUrl) {
+        // Plain click opens the certificate in a popup; modified clicks and
+        // no-JS fall back to the PDF link itself.
+        el.setAttribute('aria-haspopup', 'dialog');
+        el.addEventListener('click', (e) => {
+          if (e.metaKey || e.ctrlKey || e.shiftKey || e.button !== 0) return;
+          e.preventDefault();
+          openModal(buildCertificateModal(entry));
+        });
       }
 
       const gradeLine = entry.meta.grade ? `<span class="edu-grade">${entry.meta.grade}</span>` : '';

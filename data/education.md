@@ -5,16 +5,16 @@ image: education.png
 image_alt: A super-deformed chibi cartoon of Andrea Lorenzani wearing a graduation cap
 ---
 
-## PRINCE2 Agile
-institution: AXELOS / PeopleCert
+## PRINCE2 Agile Practitioner
+institution: PeopleCert (PRINCE2)
 grade:
-period: June 2026
-link: https://www.axelos.com/
+period: October 2026
+certificate: /certificates/prince2_agile_practitioner_2026.pdf
 kind: certification
 icon: 🧭
 
 ### Notes
-The newest one. PRINCE2's structure meets Agile delivery — because apparently I hadn't collected enough project management vocabulary yet.
+The newest one, and the Practitioner level this time: PRINCE2's structure meets Agile delivery, and I can prove it. Click the card to see the certificate.
 
 ---
 
@@ -22,7 +22,7 @@ The newest one. PRINCE2's structure meets Agile delivery — because apparently 
 institution: ICAgile
 grade:
 period: 2017
-link: https://icagile.com/
+link: https://www.icagile.com/certification/agile-fundamentals
 kind: certification
 icon: 🔄
 
@@ -32,7 +32,7 @@ icon: 🔄
 institution: PMI (Project Management Institute)
 grade:
 period: April 2016
-link: https://www.pmi.org/
+link: https://www.pmi.org/certifications/certified-associate-capm
 kind: certification
 icon: 📋
 
@@ -45,7 +45,7 @@ Went and got a formal project management vocabulary on purpose, then actually us
 institution: Università di Pisa — Information Technology, SOA & Web Service integration
 grade:
 period: Jan 2007 – Oct 2007
-link: https://www.unipi.it/index.php/english
+link: https://web.archive.org/web/20060618205413/http://www.di.unipi.it/phd/
 kind: phd
 icon: 📚
 
@@ -58,7 +58,7 @@ icon: 📚
 institution: Università di Pisa
 grade: 110/110
 period: 2002 – 2006
-link: https://www.unipi.it/index.php/english
+link: https://web.archive.org/web/20060512032915/http://compass2.di.unipi.it/Didattica/wif/
 kind: degree
 icon: 🎓
 
@@ -71,7 +71,7 @@ Full marks, which in Italy means the exam board runs out of ways to disagree wit
 institution: Università di Pisa
 grade: 110/110
 period: 1999 – 2002
-link: https://www.unipi.it/index.php/english
+link: https://web.archive.org/web/20060523235602/http://compass2.di.unipi.it/didattica/inf/
 kind: degree
 icon: 🎓
 

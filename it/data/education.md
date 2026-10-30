@@ -5,16 +5,16 @@ image: education.png
 image_alt: Un cartone chibi super deformed di Andrea Lorenzani con il tocco da laurea
 ---
 
-## PRINCE2 Agile
-institution: AXELOS / PeopleCert
+## PRINCE2 Agile Practitioner
+institution: PeopleCert (PRINCE2)
 grade:
-period: Giugno 2026
-link: https://www.axelos.com/
+period: Ottobre 2026
+certificate: /certificates/prince2_agile_practitioner_2026.pdf
 kind: certification
 icon: 🧭
 
 ### Notes
-L'ultima arrivata. La struttura di PRINCE2 incontra la delivery Agile — perché a quanto pare non avevo ancora abbastanza vocabolario di project management.
+L'ultima arrivata, e stavolta a livello Practitioner: la struttura di PRINCE2 incontra la delivery Agile, e ho il certificato per dimostrarlo. Clicca sulla scheda per vederlo.
 
 ---
 
@@ -22,7 +22,7 @@ L'ultima arrivata. La struttura di PRINCE2 incontra la delivery Agile — perch�
 institution: ICAgile
 grade:
 period: 2017
-link: https://icagile.com/
+link: https://www.icagile.com/certification/agile-fundamentals
 kind: certification
 icon: 🔄
 
@@ -32,7 +32,7 @@ icon: 🔄
 institution: PMI (Project Management Institute)
 grade:
 period: Aprile 2016
-link: https://www.pmi.org/
+link: https://www.pmi.org/certifications/certified-associate-capm
 kind: certification
 icon: 📋
 
@@ -45,7 +45,7 @@ Sono andato a prendermi un vocabolario formale di project management di proposit
 institution: Università di Pisa — Tecnologie dell'Informazione, integrazione SOA e Web Service
 grade:
 period: Gen 2007 – Ott 2007
-link: https://www.unipi.it/
+link: https://web.archive.org/web/20060618205413/http://www.di.unipi.it/phd/
 kind: phd
 icon: 📚
 
@@ -58,7 +58,7 @@ icon: 📚
 institution: Università di Pisa
 grade: 110/110
 period: 2002 – 2006
-link: https://www.unipi.it/
+link: https://web.archive.org/web/20060512032915/http://compass2.di.unipi.it/Didattica/wif/
 kind: degree
 icon: 🎓
 
@@ -71,7 +71,7 @@ icon: 🎓
 institution: Università di Pisa
 grade: 110/110
 period: 1999 – 2002
-link: https://www.unipi.it/
+link: https://web.archive.org/web/20060523235602/http://compass2.di.unipi.it/didattica/inf/
 kind: degree
 icon: 🎓
 
